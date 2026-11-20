@@ -19,14 +19,22 @@ _main:
     sta $FFCB              ; Enable sim65 tracing
 
     ; First experiment: what happens when we add 255 and 1?
-    lda #255
-    clc
-    adc #1
-    sta result_low
+    ;lda #255
+    ;clc
+    ;adc #1
+    ;sta result_low
 
     ; TODO: Replace the four instructions above with a program
     ; that adds the 16-bit numbers i and j.
     ; Add low bytes first, then high bytes.
+    clc
+    lda i_low
+    adc j_low
+    sta result_low 
+
+    lda i_high
+    adc j_high
+    sta result_high
     ; Store the answer in result_low and result_high.
 
     lda #0
